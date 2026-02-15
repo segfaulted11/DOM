@@ -8,28 +8,35 @@
 </head>
 <body>
 
-<div id="div1">
 
-    <ul>
-        <li>lorem11</li>
-        <li>lorem11</li>
-        <li>lorem11</li>
-        <li>lorem11</li>
-    </ul>
-    <p id="id-p"><i>MY NAME IS SF</i></p>
-    <h1 id="id-h1"></h1>
+<!-- get the parent element -->
+<div>
+    <p class="p-cls">paragraph 1</p>
+    <p class="p-cls">paragraph 2</p>
+    <p class="p-cls">paragraph 3</p>
 </div>
 
 
-    <div id="div2">
-        <p>This is paragraph 1</p>
-        <p>This is paragraph 2</p>
-    </div>
+<!-- get children of an element  -->
+<ul class="parent">
+    <li>First Child</li>
+    <li>Second Child</li>
+    <li>Middle Child</li>
+    <li>Fourth Child</li>
+    <li>Fifth Child</li>
+    <li>Last Child</li>
+</ul>
 
-    <div id="div3">
-        <p>This is paragraph 4</p>
-        <p>This is paragraph 5</p>
-    </div>
+
+<!-- get siblings of an element -->
+<ul>
+    <li>First Child</li>
+    <li>Second Child</li>
+    <li id="current-child">Middle Child</li>
+    <li>Fourth Child</li>
+    <li>Fifth Child</li>
+    <li>Last Child</li>
+</ul>
 
 
     <script src="js.js"></script>

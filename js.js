@@ -1,59 +1,92 @@
-//******innerHTML*****//
+// ********Traversing elements******
 
-//getting/reading the content of an element--->
-
-let xyz = document.getElementById('div1')
-console.log(xyz.innerHTML)//it prints the innerHTML(the entire content both elements and texts inside this element) of the div element which's id is div1. 
+// basics --->
 
 /*
-output -->  
- <ul>
-        <li>lorem11</li>
-        <li>lorem11</li>
-        <li>lorem11</li>
-        <li>lorem11</li>
-    </ul>
+When we say “traversing elements” in JavaScript DOM, we basically mean:
+👉 Moving around the HTML tree from one element to another.
+That’s it. You’re navigating the DOM like it’s a little family tree 🌳
+
+🧠 Think of the DOM like a Family Tree
+
+Imagine this HTML:
+
+<div id="parent">
+  <h1>Title</h1>
+  <p>Paragraph</p>
+</div>
+
+
+The <div> is the parent
+The <h1> and <p> are its children
+And <h1> and <p> are siblings to each other
+
+Traversing = walking through these relationships.
+
+🔥 Types of DOM Traversing
+
+There are mainly 3 directions you move:
+1️⃣ Going Down (Parent → Child)
+2️⃣ Going Up (Child → Parent)
+3️⃣ Going Sideways (Sibling → Sibling)
 */
 
-//changing/updating the content of an elemet--->
 
-let xyz1 = document.getElementById('id-p')
-console.log(xyz1.innerHTML)//"<i>MY NAME IS SF</i>", JUST LIKE IT WAS ORIGINALLY
+//1️⃣get the parent element--->
+let children = document.getElementsByClassName("p-cls")
 
-xyz1.innerHTML = "<u>MY NAME IS JW</u>"
-console.log(xyz1.innerHTML)//"<u>MY NAME IS JW</u>", ITS BEEN CHANGED TO
+// To get the parent node of a specified node in the DOM tree, you use the parentNode property.
 
-//setting/creating content within an elemet---->
-let xyz2 = document.getElementById('id-h1')
-console.log(xyz2.innerHTML)//nothing since no content is there
+console.log(children[0].parentNode)
+console.log(children[1].parentNode)
+console.log(children[2].parentNode)
 
-xyz2.innerHTML = "Content is being added"
-console.log(xyz2.innerHTML)//"Content is being added"
-
-
-//adding (instead of creating a new one or replacing an existing one) content---->
-
-let abc = document.getElementById("div2")
-
-// abc.innerHTML = "<p>this is paragraph 3</p>" // this one replaces the other two paragraphs inside #div2. if you want to add another element(s)beside the existing ones, use the follwoing method --
-
-abc.innerHTML += "<p>This is paragraph 3</p>"
+//they all returns the entire element of their parent (which is div). 
 
 /*
-output --> 
-
-This is paragraph 1
-This is paragraph 2
-This is paragraph 3
+output -->
+<div>
+    <p class="p-cls">paragraph 1</p>
+    <p class="p-cls">paragraph 2</p>
+    <p class="p-cls">paragraph 3</p>
+</div>
 */
 
-//removing content --->
+// The node.parentNode returns the read-only parent node of a specified node or null if it does not exist.
 
-let dfg = document.getElementById('div3')
 
-console.log(dfg.innerHTML)
-/* <p>This is paragraph 4</p>
-<p>This is paragraph 5</p>*/
 
-dfg.innerHTML=""
-console.log(dfg.innerHTML)//the previous output would be gone
+
+//2️⃣ get children of an element ---->
+
+let parent = document.querySelector(".parent")
+
+//to get the first child-
+console.log(parent.firstElementChild)//<li>First Child</li>
+
+//to get the last child-
+console.log(parent.lastElementChild)//<li>Last Child</li>
+
+//to get any child-
+console.log(parent.children)//it returns an html colection of all the children
+
+console.log(parent.children[2])//<li>Middle Child</li>
+
+//you can also manipulate after selecting-
+
+parent.children[3].innerText = "lol"
+
+console.log(parent.children[3])
+
+
+
+
+//3️⃣ get siblings of an element ------>
+
+let currentChild = document.querySelector('#current-child')
+
+//to get the next sibling element
+console.log(currentChild.nextElementSibling)//<li>Fourth Child</li>
+
+//to get the previous sibling element
+console.log(currentChild.previousElementSibling)//<li>Second Child</li>
