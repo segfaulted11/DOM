@@ -1,40 +1,59 @@
-//getting/reading attribute (values only)---->
+//******innerHTML*****//
 
-let attribute_get = document.getElementById("id1")
+//getting/reading the content of an element--->
+
+let xyz = document.getElementById('div1')
+console.log(xyz.innerHTML)//it prints the innerHTML(the entire content both elements and texts inside this element) of the div element which's id is div1. 
+
+/*
+output -->  
+ <ul>
+        <li>lorem11</li>
+        <li>lorem11</li>
+        <li>lorem11</li>
+        <li>lorem11</li>
+    </ul>
+*/
+
+//changing/updating the content of an elemet--->
+
+let xyz1 = document.getElementById('id-p')
+console.log(xyz1.innerHTML)//"<i>MY NAME IS SF</i>", JUST LIKE IT WAS ORIGINALLY
+
+xyz1.innerHTML = "<u>MY NAME IS JW</u>"
+console.log(xyz1.innerHTML)//"<u>MY NAME IS JW</u>", ITS BEEN CHANGED TO
+
+//setting/creating content within an elemet---->
+let xyz2 = document.getElementById('id-h1')
+console.log(xyz2.innerHTML)//nothing since no content is there
+
+xyz2.innerHTML = "Content is being added"
+console.log(xyz2.innerHTML)//"Content is being added"
 
 
-let attribute_get1 = attribute_get.getAttribute('class')//pass the name of the artibute as the argument
-console.log(attribute_get1)//cls1, returns the value of the attribute
+//adding (instead of creating a new one or replacing an existing one) content---->
 
-let attribute_get2 = attribute_get.getAttribute('id')//attribute = id
-console.log(attribute_get2)//id1
+let abc = document.getElementById("div2")
 
-let attribute_get3 = attribute_get.getAttribute('style')//attribute = style
-console.log(attribute_get3)//color:red
+// abc.innerHTML = "<p>this is paragraph 3</p>" // this one replaces the other two paragraphs inside #div2. if you want to add another element(s)beside the existing ones, use the follwoing method --
 
+abc.innerHTML += "<p>This is paragraph 3</p>"
 
-//setting/creating attibute (the attribute itself and the value)--->
+/*
+output --> 
 
-let attribute_set = document.getElementById("id2")
+This is paragraph 1
+This is paragraph 2
+This is paragraph 3
+*/
 
-let attribute_set1 = attribute_set.setAttribute('class','h2-cls')//the attribute itself (class) and its value has been set
-console.log(attribute_set.getAttribute('class'))//h2-cls
+//removing content --->
 
-let attribute_set2 = attribute_set.setAttribute('style','color:maroon')//the color of this element will become maroon
+let dfg = document.getElementById('div3')
 
+console.log(dfg.innerHTML)
+/* <p>This is paragraph 4</p>
+<p>This is paragraph 5</p>*/
 
-// Removing an attribute (itself)-->
-
-let attribute_remove = document.getElementById("id3")
-attribute_remove.removeAttribute('id')//it will remove the attribute id, from the selected element(h1) which had an id and its value was id3.
-console.log(attribute_remove.getAttribute('id'))//null
-
-
-//updating/changing an attribute (value)--->
-
-let attribute_update = document.getElementById("previous")
-
-console.log(attribute_update.getAttribute('id'))//previous, the previous value
-
-attribute_update.setAttribute('id','new')
-console.log(attribute_update.getAttribute('id'))//new, the new value once the its been updated.
+dfg.innerHTML=""
+console.log(dfg.innerHTML)//the previous output would be gone
